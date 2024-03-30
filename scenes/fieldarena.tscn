@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6s0pmjevo8gb"]
+
+[ext_resource type="PackedScene" uid="uid://b5xb8rnypvptg" path="res://textures/Blaine 2.gltf" id="1_bv5u4"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_43380"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rta5s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_63ydb"]
+
+[node name="Overworld 3d" type="Node3D"]
+
+[node name="Spawn node" type="StaticBody3D" parent="."]
+transform = Transform3D(500, -3.33211e-28, 1.45651e-35, 0, -2.18557e-05, -500, 3.33211e-28, 500, -2.18557e-05, 0, 0, 0)
+
+[node name="Floor collision" type="CollisionShape3D" parent="Spawn node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109957, 0.0356007, -9.72748e-05)
+shape = SubResource("WorldBoundaryShape3D_43380")
+
+[node name="Spawn sprite" type="Sprite3D" parent="Spawn node"]
+texture = SubResource("PlaceholderTexture2D_rta5s")
+
+[node name="Groot" parent="." instance=ExtResource("1_bv5u4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Groot"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 2.08165e-12, 1.2, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_63ydb")

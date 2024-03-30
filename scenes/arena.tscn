@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://caks6rc580abj"]
+
+[ext_resource type="Texture2D" uid="uid://bpwjkbxtg5ew4" path="res://textures/isometric kenny/Isometric Tiles City/Spritesheet/cityTiles_sheet.png" id="1_712v2"]
+[ext_resource type="Script" path="res://scripts/Environment.gd" id="1_yf6ya"]
+[ext_resource type="Script" path="res://scripts/csharpnode.cs" id="2_ms4g8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xpked"]
+texture = ExtResource("1_712v2")
+texture_region_size = Vector2i(63, 71)
+
+[sub_resource type="TileSet" id="TileSet_gq4j7"]
+sources/1 = SubResource("TileSetAtlasSource_xpked")
+
+[node name="Arena" type="Node2D"]
+
+[node name="Environment" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_gq4j7")
+format = 2
+script = ExtResource("1_yf6ya")
+
+[node name="csharpnode" type="Node2D" parent="."]
+script = ExtResource("2_ms4g8")
